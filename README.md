@@ -1,8 +1,8 @@
-# Launch Time
+# Poke Time
 
-Come one, come all!
+Gotta Catch 'em All!
 
-This project interacts with the Space X api to get launch data.
+This project interacts with the [Poké API](https://pokeapi.co/) to get Pokémon data.
 
 Technologies:
 
