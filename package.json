@@ -1,0 +1,26 @@
+{
+  "name": "poke_time",
+  "version": "1.0.0",
+  "description": "An app to interact with the PokeApi for my Medium blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lexscher/poke_time.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "api",
+    "medium",
+    "pokemon"
+  ],
+  "author": "Alexander Schelchere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lexscher/poke_time/issues"
+  },
+  "homepage": "https://github.com/Lexscher/poke_time#readme"
+}
