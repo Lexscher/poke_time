@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Poke Mans</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <h1>Look at all these pokemon!</h1>
+
+      <% if (pokemons) { %>
+      <ul>
+        <% pokemons.forEach(pokemon =>{ %>
+        <% let pokeIndex = pokemons.indexOf(pokemon) + 1 %>
+        
+        <li>
+          <a href="pokemons/<%= pokeIndex %>"> <%= pokemon.name %> </a>
+        </li>
+
+        <% }) %>
+      </ul>
+
+      <% } else { %>
+
+      <p>loading...</p>
+
+      <% } %>
+    </div>
+  </body>
+</html>
