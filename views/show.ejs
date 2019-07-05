@@ -1,1 +1,24 @@
-<h1>One pokemon</h1>
+<html>
+  <head>
+    <title>Pokemon</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="/pokemons">
+        <button>
+          Back
+        </button>
+      </a>
+    </header>
+    <div class="main">
+      <h1><%= pokemon.name %></h1>
+      <img
+        src="<%= pokemon.sprites.front_default %>"
+        alt="<%= pokemon.name %>"
+      />
+      <h4>Height: <%= pokemon.height %></h4>
+      <h4>Weight: <%= pokemon.weight %></h4>
+    </div>
+  </body>
+</html>
