@@ -1,34 +1,12 @@
 // Require dependencies
 const express = require('express');
-const fetch = require('node-fetch');
-
+const Pokemons = require('./api/Pokemon');
 // Call express
 const app = express();
-
 // Set our server
 const PORT = 3000
-
 // set view engine to ejs
 app.set('view engine', 'ejs');
-
-// set url endpoints
-    // url for all pokemon
-const urlForAll = 'https://pokeapi.co/api/v2/pokemon?limit=151'
-    // url for one pokemon
-const urlForOne = `https://pokeapi.co/api/v2/pokemon/`
-
-// Array to store our data
-let pokeList = [];
-
-// fetch the url
-fetch(urlForAll)
-    // parse into json 
-    .then(response => response.json())
-    // Get the results and assign them to our pokeList
-    .then(jsonData => pokeList = jsonData.results)
-    // Handle the error
-    .catch(err => console.log(err));
-
 
 // Home Page
 app.get('/', (request, response) => {
@@ -37,14 +15,22 @@ app.get('/', (request, response) => {
 
 // INDEX PAGE - show all pokemon 
 app.get('/pokemons', (request, response) => {
-    response.render('index', {pokemons: pokeList})
+    // Use our getAll method
+    Pokemons.getAll().then(pokeList => {
+        // Then render the 'Index' view, and pass it the array of pokemon returned from our Promise.
+        response.render('index', {pokemons: pokeList.results})
+    }).catch(err => console.log(err.message))
 });
 
 // SHOW PAGE - show one pokemon
 app.get('/pokemons/:id', (request, response) => {
-    response.render('show')
+    // Get id of the pokemon from the parameter
+    const id = parseInt(request.params.id);
+    // pass id as an argument to getOne pokemon
+    Pokemons.getOne(id).then(pokemonInfo => {
+        response.render('show', { pokemon: pokemonInfo})
+    }).catch(err => console.log(err.message))
 });
-
 
 
 // run server
